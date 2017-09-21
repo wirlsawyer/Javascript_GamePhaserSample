@@ -1,0 +1,52 @@
+﻿<html><head>
+    <meta charset="utf-8">
+    <title>Phaser Sandbox Frame</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+    <script src="lib/phaser/2.6.2/phaser.min.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="game" style="margin:0px"><!--<canvas width="800" height="600" style="display: block; touch-action: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 800px; height: 600px; cursor: inherit;"></canvas>--></div>
+
+<script type="text/javascript">
+
+var _isAlive = false;
+
+window.onload = function() {
+    _isAlive = true;
+} 
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: this.preload, create: this.create, update: this.update, render: this.render });
+
+function preload() {
+    game.load.baseURL = 'http://examples.phaser.io/assets/';
+    game.load.crossOrigin = 'anonymous';
+    game.load.image('phaser', 'sprites/phaser-dude.png'); 
+    console.log("finish preload");
+}
+     
+function create() {
+    var sprite = game.add.sprite(0, 0, 'phaser'); 
+    console.log("finish create");
+}
+
+function update()
+{
+    //console.log("finish update");
+}
+
+function render()
+{
+    //console.log("finish render"); 
+}
+
+</script>
+
+
+
+</body></html>
