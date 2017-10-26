@@ -1,0 +1,96 @@
+﻿<html><head>
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Phaser Sandbox Frame</title>
+    <style type="text/css">
+        body {
+              margin: 0px;
+              overflow: hidden;
+              padding: 0px;
+              border: 0px;
+              background: #FFFFFF;
+              background-image: url('noice2d_loading.gif');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-position: center center;
+              min-height: 70vh; 
+        }
+              
+        .gameStyle {
+            width: 100%;
+            height: 100%; 
+            left: 0;
+            top: 0;
+            margin:0px;   
+        }
+    </style>
+    <script src="lib/phaser/2.6.2/phaser.min.js"></script>
+</head>
+
+<body>
+
+<div id="game" class="gameStyle"></div> 
+
+<script type="text/javascript">
+
+var _isAlive = false;
+
+window.onload = function() {
+    _isAlive = true;
+} 
+var game = new Phaser.Game(320, 480, Phaser.AUTO, 'game', { init: this.init, preload: this.preload, create: this.create, update: this.update, render: this.render});
+
+function init()
+{ 
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.forceOrientation(!1,!1);
+    //game.scale.onSizeChange.add(this.onSizeChange, this);
+    //game.scale.setResizeCallback(this.onResize,this);
+    game.scale.pageAlignHorizontally=!0;
+    game.scale.pageAlignVertically=!0;
+    game.canvas.parentElement.style.backgroundColor="#ffec84";
+    game.canvas.style.boxShadow="0 0 30px black";
+    game.input.maxPointers = 1;
+    //game.scale.setMinMax(320, 480, 320*2, 480*2);
+    //?game.stage.disableVisibilityChange=!1;
+}
+
+function preload() {
+    game.load.baseURL = 'http://examples.phaser.io/assets/';
+    game.load.crossOrigin = 'anonymous';
+    game.load.image('phaser', 'sprites/phaser-dude.png'); 
+    console.log("finish preload");
+}
+     
+function create() {
+    var sprite = game.add.sprite(0, 0, 'phaser'); 
+    console.log("finish create");
+}
+
+function update()
+{
+    //console.log("finish update");
+}
+
+function render()
+{
+    //console.log("finish render"); 
+} 
+ 
+</script>
+
+
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
